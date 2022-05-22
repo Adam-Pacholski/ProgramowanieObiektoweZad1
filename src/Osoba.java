@@ -4,11 +4,9 @@ public class Osoba {
 
     private String imie;
     private String nazwisko;
-
     private String adres;
     private String[] numeryRejestracyjne;
     private Integer iloscSamochodow = 0;
-
 
     // Konstruktory
 
