@@ -12,11 +12,13 @@ public class Osoba {
 
     // Konstruktory
 
+    // Konstruktor domyślny z automatu tworzy miejsce na 3 samochody
     public Osoba() {
         this.imie = "nieznane";
         this.nazwisko = "nieznane";
         this.adres = "nieznany";
         this.numeryRejestracyjne = new String[3];
+        System.out.println("Nowa osoba dodana");
 
     }
 
@@ -28,39 +30,55 @@ public class Osoba {
 
         if (iloscSamochodow <= 3) {
             this.numeryRejestracyjne = new String[iloscSamochodow];
+            System.out.println("Nowa osoba dodana");
         } else {
-            System.out.println("Nie mozma miec wiecej niz 3 auta");
-            System.exit(0);
+            System.out.println("Nie mozma dodac nowej osoby, poniewaz nie mozna miec wiecej niz 3 auta");
+            //System.exit(0);
         }
-
     }
 
     // Metody
 
     public void dodajSamochod(String nrRejestracyjny) {
-        if (this.iloscSamochodow < this.numeryRejestracyjne.length) {
 
-            // Dodanie tablic na pierwsze wolne miejsce
-            for (int i = 0; i < this.numeryRejestracyjne.length; i++) {
-                if (numeryRejestracyjne[i] == null) {
-                    this.numeryRejestracyjne[i] = nrRejestracyjny;
-                    this.iloscSamochodow++;
-                    break;
-                }
+        boolean istnieje = false;
+
+        for (String s : this.numeryRejestracyjne) {
+            if (Objects.equals(s, nrRejestracyjny)) {
+                System.out.println("Nie moga byc dwa samochody o tych samych numerach rejestracyjnych");
+                istnieje = true;
+                break;
             }
-        } else {
-            System.out.println("Nie mozna dodać więcej samochodów");
+        }
+
+        if (!istnieje) {
+            if (this.iloscSamochodow < this.numeryRejestracyjne.length) {
+
+                // Dodanie tablic na pierwsze wolne miejsce
+                for (int i = 0; i < this.numeryRejestracyjne.length; i++) {
+                    if (numeryRejestracyjne[i] == null) {
+                        this.numeryRejestracyjne[i] = nrRejestracyjny;
+                        System.out.println("Dodano samochod o nr rejestracyjnym: " + nrRejestracyjny);
+                        this.iloscSamochodow++;
+                        break;
+                    }
+                }
+            } else {
+                System.out.println("Nie mozna dodać więcej samochodów");
+            }
         }
     }
 
     public void usunSamochod(String nrRejestracyjny) {
 
         if (iloscSamochodow == 0) {
-            System.out.println("Aktualnie osoba ta nie posiada samochodów");
+            System.out.println("Nie mozna usunac wiecej samochodow, poniewaz aktualnie osoba nie posiada samochodów");
         } else {
             for (int i = 0; i < this.numeryRejestracyjne.length; i++) {
                 if (Objects.equals(this.numeryRejestracyjne[i], nrRejestracyjny)) {
                     this.numeryRejestracyjne[i] = null;
+                    System.out.println("Usunieto samochod o nr rejestracyjnym: " + nrRejestracyjny);
+
                     this.iloscSamochodow--;
                     break;
                 } else if (i == this.numeryRejestracyjne.length - 1) {
@@ -71,7 +89,6 @@ public class Osoba {
     }
 
     public void wypiszInfo() {
-        System.out.println();
         System.out.println("----------------------------");
         System.out.println();
         System.out.println("Imię: " + getImie());
@@ -79,12 +96,18 @@ public class Osoba {
         System.out.println("Adres: " + getAdres());
         System.out.println("Numery tablic rejestracyjnych posiadanych samochodów:");
 
-        for (String s : this.numeryRejestracyjne) {
-           if(s!=null) {
-               System.out.println("- " + s);
-           }
+        if(this.iloscSamochodow == 0){
+            System.out.println("Brak");
         }
-//        System.out.println();
+        else
+        {
+            for (String s : this.numeryRejestracyjne) {
+                if (s != null) {
+                    System.out.println("- " + s);
+                }
+            }
+        }
+
         System.out.println("Aktualna liczba posiadanych samochodow: " + this.iloscSamochodow);
     }
 
