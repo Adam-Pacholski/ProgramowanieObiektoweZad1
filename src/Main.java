@@ -12,18 +12,17 @@ public class Main {
 
         Garaz g2 = new Garaz("ul. Garażowa 2", 2);
 
-        g1.wprowadzSamochod(s1);
-//        g1.wypiszInfo();
-//        g1.wprowadzSamochod(s2);
+        Osoba o1 = new Osoba("Adam","Pacholski","Am Bahndamm 10",3);
+        o1.dodajSamochod(s1.getNumerRejestracyjny());
+        o1.dodajSamochod(s2.getNumerRejestracyjny());
+        o1.dodajSamochod(s3.getNumerRejestracyjny());
+//        o1.dodajSamochod("Z DUPY");
+        o1.usunSamochod("dsdsdffsf");
+        o1.usunSamochod(s3.getNumerRejestracyjny());
+        o1.usunSamochod(s1.getNumerRejestracyjny());
+        o1.usunSamochod(s2.getNumerRejestracyjny());
+        o1.usunSamochod(s2.getNumerRejestracyjny());
 
-        g2.wprowadzSamochod(s1);
-        g2.wprowadzSamochod(s2);
-        g2.wypiszInfo();
-        g2.wyprowadzSamochod();
-        g2.wyprowadzSamochod();
-        g2.wyprowadzSamochod();
-
-        Osoba o1 = new Osoba();
         o1.wypiszInfo();
 
     }
