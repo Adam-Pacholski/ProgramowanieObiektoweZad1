@@ -71,12 +71,21 @@ public class Osoba {
     }
 
     public void wypiszInfo() {
-        for (String s : this.numeryRejestracyjne) {
-            System.out.println(s);
-        }
-
         System.out.println();
-        System.out.println("Liczba posiadanych samochodow: " + this.iloscSamochodow);
+        System.out.println("----------------------------");
+        System.out.println();
+        System.out.println("Imię: " + getImie());
+        System.out.println("Nazwisko: " + getNazwisko());
+        System.out.println("Adres: " + getAdres());
+        System.out.println("Numery tablic rejestracyjnych posiadanych samochodów:");
+
+        for (String s : this.numeryRejestracyjne) {
+           if(s!=null) {
+               System.out.println("- " + s);
+           }
+        }
+//        System.out.println();
+        System.out.println("Aktualna liczba posiadanych samochodow: " + this.iloscSamochodow);
     }
 
     // Gettery i settery

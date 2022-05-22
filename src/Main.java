@@ -19,11 +19,15 @@ public class Main {
 //        o1.dodajSamochod("Z DUPY");
         o1.usunSamochod("dsdsdffsf");
         o1.usunSamochod(s3.getNumerRejestracyjny());
-        o1.usunSamochod(s1.getNumerRejestracyjny());
-        o1.usunSamochod(s2.getNumerRejestracyjny());
-        o1.usunSamochod(s2.getNumerRejestracyjny());
-
+//        o1.usunSamochod(s1.getNumerRejestracyjny());
+//        o1.usunSamochod(s2.getNumerRejestracyjny());
+//        o1.usunSamochod(s2.getNumerRejestracyjny());
         o1.wypiszInfo();
+        Osoba o2 = new Osoba();
+        o2.wypiszInfo();
+
+
+
 
     }
 }
